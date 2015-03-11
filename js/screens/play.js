@@ -11,6 +11,9 @@ game.PlayScreen = me.ScreenObject.extend({
                 var player = me.pool.pull("orcSpear", 0, 420, {});
                 me.game.world.addChild(player, 5);
                 
+                var gameManager = me.pool.pull("GameManager", 0, 0, {});
+                me.game.world.addChild(gameManager, 0);
+                
                 me.input.bindKey(me.input.KEY.RIGHT, "right");
                 me.input.bindKey(me.input.KEY.LEFT, "left");
                 me.input.bindKey(me.input.KEY.UP, "jump");
