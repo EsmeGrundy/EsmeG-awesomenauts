@@ -127,7 +127,7 @@ game.PlayerEntity = me.Entity.extend({
                
             }
                if(this.renderable.isCurrentAnimation("attack") && (this.now - this.lastHit >= game.data.playerAttackTimer) && (Math.abs(ydif) <= 40) &&
-                    (xdif > 0) && this.facing === "left" || (xdif < 0) && this.facing === "left"){
+                    (((xdif > 0) && this.facing === "left") || ((xdif < 0) && this.facing === "right"))){
                 this.lastHit = this.now;
                 response.b.loseHealth(game.data.playerAttack);
             }
@@ -251,6 +251,7 @@ game.EnemyCreep = me.Entity.extend({
     },
     loseHealth: function(damage) {
         this.health = this.health - damage;
+        console.log("enemy healt: " + this.health);
     },
     update: function(delta) {
         if(this.health <= 0){
@@ -284,7 +285,6 @@ game.EnemyCreep = me.Entity.extend({
             var xdif = this.pos.x - response.b.pos.x;
 
             this.attacking = true;
-            this.lastAttacking = this.now;
 
             if (xdif > 0) {
                 //keeps moving the creep to the right to maintain its position
@@ -292,7 +292,7 @@ game.EnemyCreep = me.Entity.extend({
                 this.body.vel.x = 0;
             }
             //checks that it has been at lest one second since creep has hit something
-            if ((this.now - this.lastHit >= 1000) && xdif > 0) {
+            if ((this.now - this.lastHit >= 1000) && (xdif > 0)) {
                 //updates lastHit timer
                 this.lastHit = this.now;
                 //makes player call loseHealth function and passes damage of 1
@@ -313,6 +313,10 @@ game.GameManager = Object.extend({
     update: function() {
         this.now = new Date().getTime();
 
+        if(game.data.player.dead){
+            me.game.world.removeChild(game.data.player);
+            me.state.current().resetPlayer(10, 0);
+        }
         if (Math.round(this.now / 1000) % 10 === 0 && (this.now - this.lastCreep >= game.data.creepAttackTimer)) {
             this.lastCreep = this.now;
             var creep = me.pool.pull("EnemyCreep", 1000, 0, {});
