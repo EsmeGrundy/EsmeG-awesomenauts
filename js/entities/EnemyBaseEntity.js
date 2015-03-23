@@ -1,13 +1,12 @@
-game.PlayerBaseEntity = me.Entity.extend({
+game.EnemyBaseEntity = me.Entity.extend({
     init: function(x, y, settings) {
         this.setSuper(x, y, settings);
         this.setAttributes();
         this.setFlags();
-
         this.body.onCollision = this.onCollision.bind(this);
-        this.type = "PlayerBaseEntity";
-
+        this.type = "EnemyBaseEntity";
         this.addAnimations();
+
     },
     setSuper: function(x, y, settings) {
         this._super(me.Entity, 'init', [x, y, {
@@ -42,12 +41,12 @@ game.PlayerBaseEntity = me.Entity.extend({
     checkIfBroken: function() {
         if (this.health <= 0) {
             return true;
-            game.data.win = false;
+            game.data.win = true;
             this.renderable.setCurrentAnimation("broken");
         }
     },
-    loseHealth: function(damage) {
-        this.health = this.health - damage;
+    loseHealth: function() {
+        this.health--;
     },
     onCollision: function() {
 
