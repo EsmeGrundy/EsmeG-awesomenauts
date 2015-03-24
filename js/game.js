@@ -5,12 +5,12 @@ var game = {
     data: {
         // score
         score: 0,
-        enemyBaseHealth: 10,
-        playerBaseHealth: 10,
-        enemyCreepHealth: 10,
+        enemyBaseHealth: 1,
+        playerBaseHealth: 1,
+        enemyCreepHealth: 1,
         playerHealth: 10,
         enemyCreepAttack: 5,
-        playerAttack: 2,
+        playerAttack: 1,
         playerAttackTimer: 1000,
         creepAttackTimer: 1000,
         playerMoveSpeed: 5,
@@ -44,7 +44,8 @@ var game = {
         }
         
         me.save.add({exp: 0, exp1: 0, exp2: 0, exp3: 0, exp4: 0});
-
+        me.state.SPENDEXP = 112;
+  
         // Initialize the audio.
         me.audio.init("mp3,ogg");
 
@@ -69,6 +70,7 @@ var game = {
         me.pool.register("ExperienceManager", game.ExperienceManager);
         me.state.set(me.state.MENU, new game.TitleScreen());
         me.state.set(me.state.PLAY, new game.PlayScreen());
+        me.state.set(me.state.SPENDEXP, new game.SpendExp());
 
         // Start the game.
         me.state.change(me.state.MENU);

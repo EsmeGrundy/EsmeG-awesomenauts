@@ -21,7 +21,7 @@ game.EnemyBaseEntity = me.Entity.extend({
             }]);
     },
     setAttributes: function() {
-        this.health = game.data.playerBaseHealth;
+        this.health = game.data.enemyBaseHealth;
     },
     setFlags: function() {
         this.broken = false;
@@ -34,6 +34,7 @@ game.EnemyBaseEntity = me.Entity.extend({
     },
     update: function(delta) {
         this.broken = this.checkIfBroken();
+        this.break();
         this.body.update(delta);
         this._super(me.Entity, "update", [delta]);
         return true;
@@ -41,12 +42,16 @@ game.EnemyBaseEntity = me.Entity.extend({
     checkIfBroken: function() {
         if (this.health <= 0) {
             return true;
+        }
+    },
+    break: function(){
+         if (this.broken) {
             game.data.win = true;
             this.renderable.setCurrentAnimation("broken");
         }
     },
-    loseHealth: function() {
-        this.health--;
+    loseHealth: function(damage) {
+        this.health = this.health - damage;
     },
     onCollision: function() {
 
