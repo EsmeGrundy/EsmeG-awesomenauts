@@ -1,6 +1,6 @@
 game.EnemyCreep = me.Entity.extend({
     init: function(x, y, settings) {
-        this.setSuper();
+        this.setSuper(x, y, {});
         this.setCreepTimers();
         this.setAttributes();
         this.setFlags();

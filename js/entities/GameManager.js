@@ -13,7 +13,7 @@ game.GameTimerManager = Object.extend({
     },
     goldTimerCheck: function() {
         if (Math.round(this.now / 1000) % 20 === 0 && (this.now - this.lastCreep >= game.data.creepAttackTimer)) {
-            game.data.gold += 1;
+            game.data.gold += (game.data.exp1 + 1);
             console.log("current gold: " + game.data.gold);
         }
     },
