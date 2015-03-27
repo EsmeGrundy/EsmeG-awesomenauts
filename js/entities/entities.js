@@ -29,7 +29,7 @@ game.PlayerEntity = me.Entity.extend({
     },
     setAttributes: function() {
         this.health = 20;
-        this.body.setVelocity(5, 20);
+        this.body.setVelocity(game.data.playerMoveSpeed, 20);
         this.attack = game.data.playerAttack;
     },
     setFlags: function() {
