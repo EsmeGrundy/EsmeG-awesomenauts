@@ -93,21 +93,49 @@ require_once("php/controller/create-db.php");
             $("#register").bind("click", function() {
                 $.ajax({
                     type: "POST",
-                    url: "php/controller/create-db.php",
+                    url: "php/controller/create-user.php",
                     data: {
                         username: $('#username').val(),
                         password: $('#password').val()
                     },
-                    dataType: "text",
+                    dataType: "text"
                 })
                         .success(function(response) {
-                            if(response === "true"){
-                               me.state.change(me.state.PLAY);
-                            }else{
+                            if (response === "true") {
+                                me.state.change(me.state.PLAY);
+                            } else {
                                 alert(response);
                             }
                         })
-                        .fail(function(response){
+                        .fail(function(response) {
+                            alert("fail");
+                        });
+            });
+            $("#load").bind("click", function() {
+                $.ajax({
+                    type: "POST",
+                    url: "php/controller/login-user.php",
+                    data: {
+                        username: $('#username').val(),
+                        password: $('#password').val()
+                    },
+                    dataType: "text"
+                })
+                        .success(function(response) {
+                            if (response === "Invalid Username and Password") {
+                                alert(response);
+                                
+                            } else {
+                                var data = jQuery.parseJSON(response);
+                                game.data.exp = data["exp"];
+                                game.data.exp1 = data["exp1"];
+                                game.data.exp2 = data["exp2"];
+                                game.data.exp3 = data["exp3"];
+                                game.data.exp4 = data["exp4"];
+                                me.state.change(me.state.SPENDEXP);
+                            }
+                        })
+                        .fail(function(response) {
                             alert("fail");
                         });
             });

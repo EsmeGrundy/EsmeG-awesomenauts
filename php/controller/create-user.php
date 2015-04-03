@@ -11,14 +11,14 @@ $salt = "$5$" . "rounds = 5000$" . uniqid(mt_rand(), true) . "$";
 $hashedPassword = crypt($password, $salt); //encrypts the password given by the user
 
 $query = $_SESSION["connection"]->query("INSERT INTO users SET "  //queries the database to put the users' email, username, hashed password and salt into database
-        . "username = '$username' ,"
-        . "password = '$hashedPassword' ,"
-        . "salt = '$salt',"
+        . "username='$username',"
+        . "password='$hashedPassword',"
+        . "salt='$salt',"
         . "exp = 0,"
         . "exp1 = 0, "
         . "exp2 = 0,"
         . "exp3 = 0,"
-        . "exp4 = 0,"
+        . "exp4 = 0"
 );
 
 $_SESSION["name"] = $username;

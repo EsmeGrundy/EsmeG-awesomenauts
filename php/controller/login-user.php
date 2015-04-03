@@ -35,5 +35,5 @@ if ($query->num_rows === 1) {  //if there is only one row where the username is 
         echo "Invalid Username and Password";
     }
 } else {
-    header("location: " . $path . "/login.php"); //refreshes the login form
+    echo "Invalid Username and Password"; //refreshes the login form
 }

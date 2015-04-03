@@ -6,7 +6,7 @@ game.SpendExp = me.ScreenObject.extend({
         me.input.bindKey(me.input.KEY.F3, "F3");
         me.input.bindKey(me.input.KEY.F4, "F4");
         me.input.bindKey(me.input.KEY.F5, "F5");
-        var goldProductionCost = ((game.data.exp1 + 1) * 5);
+        var goldProductionCost = ((Number(game.data.exp1) + 1) * 5);
         me.game.world.addChild(new (me.Renderable.extend({
             init: function() {
                 this._super(me.Renderable, 'init', [10, 10, 300, 50]);

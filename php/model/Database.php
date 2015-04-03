@@ -26,14 +26,10 @@ class Database {
         if (!$exists) {
             $query = $this->connection->query("CREATE DATABASE $database");
             if ($query) {
-                echo ""
-                //. "<p>Successfully created database:" . $database . "</p>"
-                ;
+                echo "";
             }
         } else {
-            echo ""
-            // . "<p>Database already exists</p>"
-            . "";
+            echo "";
         }
     }
 
