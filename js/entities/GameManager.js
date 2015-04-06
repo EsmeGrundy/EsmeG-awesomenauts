@@ -48,7 +48,7 @@ game.ExperienceManager = Object.extend({
             alert("YOU WIN!");
         } else if (game.data.win === false && !this.gameover) {
             this.gameOver(false);
-            alert("YOU LOSE! :'(");
+            alert("YOU LOSE!");
         }
         return true;
     },

@@ -25,6 +25,7 @@ game.PlayerEntity = me.Entity.extend({
     setPlayerTimers: function() {
         this.now = new Date().getTime();
         this.lastHit = this.now;
+        this.lastSpear = this.now;
         this.lastAttack = new Date().getTime();
     },
     setAttributes: function() {
@@ -46,6 +47,7 @@ game.PlayerEntity = me.Entity.extend({
         this.now = new Date().getTime();
         this.dead = this.checkIfDead();
         this.checkKeyPressesAndMove();
+        this.checkAbilityKeys();
         this.setAnimation();
 
         me.collision.check(this, true, this.collideHandler.bind(this), true);
@@ -96,6 +98,24 @@ game.PlayerEntity = me.Entity.extend({
         this.body.vel.y = -this.body.maxVel.y * me.timer.tick;
         //makes jumping variable true
         this.body.jumping = true;
+    },
+    checkAbilityKeys: function() {
+        if (me.input.isKeyPressed("skill1")) {
+            //this.speedBurst();
+        }
+        else if (me.input.isKeyPressed("skill2")) {
+            //this.eatCreep();
+        }
+        else if (me.input.isKeyPressed("skill3")) {
+            this.throwSpear();
+        }
+    },
+    throwSpear: function() {
+        if (this.lastSpear >= game.data.spearTimer && game.data.ability3 >= 0){
+            this.lastSpear = this.now;
+            var spear = me.pool.pull("spear", this.pos.x, this.pos.y, {});
+            me.game.world.addChild(spear, 10);
+        }
     },
     setAnimation: function() {
         if (this.attacking) {
@@ -152,7 +172,7 @@ game.PlayerEntity = me.Entity.extend({
     collideWithEnemyCreep: function(response) {
         var xdif = this.pos.x - response.b.pos.x;
         var ydif = this.pos.y - response.b.pos.y;
-        
+
         //console.log(xdif);
         this.stopMovement(xdif);
         if (this.checkAttack(xdif, ydif)) {
