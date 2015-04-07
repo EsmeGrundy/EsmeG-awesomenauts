@@ -111,9 +111,9 @@ game.PlayerEntity = me.Entity.extend({
         }
     },
     throwSpear: function() {
-        if (this.lastSpear >= game.data.spearTimer && game.data.ability3 >= 0){
+        if (this.lastSpear >= game.data.spearTimer && game.data.ability3 > 0){
             this.lastSpear = this.now;
-            var spear = me.pool.pull("spear", this.pos.x, this.pos.y, {});
+            var spear = me.pool.pull("spear", this.pos.x, this.pos.y, {}, this.facing);
             me.game.world.addChild(spear, 10);
         }
     },
@@ -164,7 +164,6 @@ game.PlayerEntity = me.Entity.extend({
         }
 
         if (this.renderable.isCurrentAnimation("attack") && this.now - this.lastHit >= game.data.playerAttackTimer) {
-            console.log("Tower Hit");
             this.lastHit = this.now;
             response.b.loseHealth(game.data.playerAttack);
         }
