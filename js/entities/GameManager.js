@@ -22,6 +22,10 @@ game.GameTimerManager = Object.extend({
             this.lastCreep = this.now;
             var creep = me.pool.pull("EnemyCreep", 1000, 0, {});
             me.game.world.addChild(creep, 5);
+        } else if (Math.round(this.now / 1000) % 10 === 0 && (this.now - this.lastCreep >= game.data.teamCreepAttackTimer)) {
+            this.lastCreep = this.now;
+            var creept = me.pool.pull("TeamCreep", 1000, 0, {});
+            me.game.world.addChild(creept, 5);
         }
     }
 });
@@ -243,6 +247,64 @@ game.SpendGold = Object.extend({
         else if (skill === 6) {
             game.data.gold -= ((game.data.ability3 + 1) * 10);
             game.data.ability3 += 1;
+        }
+    }
+});
+game.Pause = Object.extend({
+    init: function(x, y, settings) {
+        this.paused = false;
+        this.alwaysUpdate = true;
+        this.updateWhenPaused = true;
+        this.pauseMenu = false;
+    },
+    update: function() {
+        if (me.input.isKeyPressed("pause")) {
+            if (!this.pauseMenu) {
+                this.startPause();
+            }
+            else {
+                this.stopPause();
+            }
+        }
+        this.checkMKey();
+        return true;
+    },
+    startPause: function() {
+        this.buying = true;
+        me.state.pause(me.state.PLAY);
+        game.data.pausePos = me.game.viewport.localToWorld(0, 0);
+        game.data.pauseScreen = new me.Sprite(game.data.pausePos.x, game.data.pausePos.y, me.loader.getImage("pause-screen"));
+        game.data.pauseScreen.updateWhenPaused = true;
+        game.data.pauseScreen.setOpacity(0.8);
+        me.game.world.addChild(game.data.pauseScreen, 34);
+        game.data.player.body.setVelocity(0, 0);
+        this.setPauseText();
+    },
+    setPauseText: function() {
+        game.data.pausetext = new (me.Renderable.extend({
+            init: function() {
+                this._super(me.Renderable, 'init', [game.data.pausePos.x, game.data.pausePos.y, 300, 50]);
+                this.font = new me.Font("Arial", 26, "white");
+                this.updateWhenPaused = true;
+                this.alwaysUpdate = true;
+            },
+            draw: function(renderer) {
+                this.font.draw(renderer.getContext(), "PAUSE MENU", this.pos.x, this.pos.y);
+                this.font.draw(renderer.getContext(), "Press P to unpause, M to return to the main menu", this.pos.x + 50, this.pos.y + 40);
+            }
+        }));
+        me.game.world.addChild(game.data.pausetext, 35);
+    },
+    stopPause: function() {
+        this.pauseMenu = false;
+        me.state.resume(me.state.PLAY);
+        game.data.player.body.setVelocity(game.data.playerMoveSpeed, 20);
+        me.game.world.removeChild(game.data.pauseScreen);
+        me.game.world.removeChild(game.data.pausetext);
+    },
+    checkMKey: function() {
+        if (me.input.isKeyPressed("menu")) {
+            me.state.change(me.state.MENU);
         }
     }
 });

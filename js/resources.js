@@ -8,12 +8,14 @@ game.resources = [
     {name: "orcSpear", type: "image", src: "data/img/orcSpear.png"},
     {name: "tower", type: "image", src: "data/img/tower_round.svg.png"},
     {name: "creep1", type: "image", src: "data/img/brainmonster.png"},
+    {name: "creep2", type: "image", src: "data/img/gloop.png"},
     {name: "title-screen", type: "image", src: "data/img/title.png"},
     {name: "gold-screen", type: "image", src: "data/img/spend.png"},
     {name: "exp-screen", type: "image", src: "data/img/loadpic.png"},
     {name: "load-screen", type: "image", src: "data/img/loadpic.png"},
     {name: "new-screen", type: "image", src: "data/img/newpic.png"},
     {name: "spear", type: "image", src: "data/img/spear.png"},
+    {name: "pause-screen", type: "image", src: "data/img/pause-screen.jpg"},
     /* Atlases 
      * @example
      * {name: "example_tps", type: "tps", src: "data/img/example_tps.json"},

@@ -21,6 +21,9 @@ game.PlayScreen = me.ScreenObject.extend({
 
         var spendGold = me.pool.pull("SpendGold", 0, 0, {});
         me.game.world.addChild(spendGold, 0);
+        
+        var pause = me.pool.pull("Pause", 0, 0, {});
+        me.game.world.addChild(pause, 0);
 
         me.input.bindKey(me.input.KEY.B, "buy");
         me.input.bindKey(me.input.KEY.Q, "skill1");
@@ -30,6 +33,8 @@ game.PlayScreen = me.ScreenObject.extend({
         me.input.bindKey(me.input.KEY.LEFT, "left");
         me.input.bindKey(me.input.KEY.UP, "jump");
         me.input.bindKey(me.input.KEY.A, "attack");
+        me.input.bindKey(me.input.KEY.P, "pause");
+        me.input.bindKey(me.input.KEY.M, "menu");
 
         // add our HUD to the game world
         this.HUD = new game.HUD.Container();
