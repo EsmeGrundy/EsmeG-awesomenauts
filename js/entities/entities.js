@@ -172,19 +172,19 @@ game.PlayerEntity = me.Entity.extend({
         var xdif = this.pos.x - response.b.pos.x;
         var ydif = this.pos.y - response.b.pos.y;
 
-        //console.log(xdif);
+        console.log("xdif: " + xdif);
         this.stopMovement(xdif);
         if (this.checkAttack(xdif, ydif)) {
             this.hitCreep(response);
         }
     },
     stopMovement: function(xdif) {
-        if (xdif > 0) {
+        if (xdif > 30) {
             this.pos.x = this.pos.x + 1;
             if (this.facing === "left") {
                 this.body.vel.x === 0;
             }
-        } else {
+        } else if(xdif < -30){
             this.pos.x = this.pos.x - 1;
             if (this.facing === "right") {
                 this.body.vel.x === 0;
@@ -202,7 +202,7 @@ game.PlayerEntity = me.Entity.extend({
     hitCreep: function(response) {
         if (response.b.health <= this.attack) {
             game.data.gold += 1;
-            console.log("current gold: " + game.data.gold);
+//            console.log("current gold: " + game.data.gold);
         }
         response.b.loseHealth(game.data.playerAttack);
     }

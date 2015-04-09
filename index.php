@@ -52,7 +52,7 @@ require_once("php/controller/create-db.php");
         <script type="text/javascript" src="js/entities/PlayerBaseEntity.js"></script>
         <script type="text/javascript" src="js/entities/EnemyBaseEntity.js"></script>
         <script type="text/javascript" src="js/entities/EnemyCreep.js"></script>
-         <script type="text/javascript" src="js/entities/TeamCreep.js"></script>
+        <script type="text/javascript" src="js/entities/TeamCreep.js"></script>
         <script type="text/javascript" src="js/entities/HUD.js"></script>
         <script type="text/javascript" src="js/entities/SpearThrow.js"></script>
 
@@ -61,6 +61,7 @@ require_once("php/controller/create-db.php");
         <script type="text/javascript" src="js/screens/spendExp.js"></script>
         <script type="text/javascript" src="js/screens/newProfile.js"></script>
         <script type="text/javascript" src="js/screens/loadProfile.js"></script>
+        <script type="text/javascript" src="js/screens/restart.js"></script>
         <!-- /build -->
         <!-- Bootstrap & Mobile optimization tricks -->
         <script type="text/javascript">
@@ -126,7 +127,7 @@ require_once("php/controller/create-db.php");
                         .success(function(response) {
                             if (response === "Invalid Username and Password") {
                                 alert(response);
-                                
+
                             } else {
                                 var data = jQuery.parseJSON(response);
                                 game.data.exp = data["exp"];

@@ -2,6 +2,7 @@ game.GameTimerManager = Object.extend({
     init: function(x, y, settings) {
         this.now = new Date().getTime();
         this.lastCreep = new Date().getTime();
+        this.lastTeamCreep = new Date().getTime();
         this.paused = false;
         this.alwaysUpdate = true;
     },
@@ -18,14 +19,15 @@ game.GameTimerManager = Object.extend({
         }
     },
     creepTimerCheck: function() {
-        if (Math.round(this.now / 1000) % 10 === 0 && (this.now - this.lastCreep >= game.data.creepAttackTimer)) {
+        if (Math.round(this.now / 2000) % 10 === 0 && (this.now - this.lastCreep >= game.data.creepAttackTimer)) {
             this.lastCreep = this.now;
             var creep = me.pool.pull("EnemyCreep", 1000, 0, {});
             me.game.world.addChild(creep, 5);
-        } else if (Math.round(this.now / 1000) % 10 === 0 && (this.now - this.lastCreep >= game.data.teamCreepAttackTimer)) {
-            this.lastCreep = this.now;
+        } else if (Math.round(this.now / 1000) % 10 === 0 && ((this.now - this.lastTeamCreep) >= game.data.teamCreepAttackTimer)) {
+            this.lastTeamCreep = this.now;
             var creept = me.pool.pull("TeamCreep", 1000, 0, {});
             me.game.world.addChild(creept, 5);
+            console.log("team creep");
         }
     }
 });
@@ -78,7 +80,7 @@ game.ExperienceManager = Object.extend({
         })
                 .success(function(response) {
                     if (response === "true") {
-                        me.state.change(me.state.MENU);
+                        me.state.change(me.state.RESTART);
                     } else {
                         alert(response);
                     }

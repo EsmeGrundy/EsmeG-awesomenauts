@@ -4,13 +4,13 @@
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
             <file>file:/C:/xampp/htdocs/EsmeG-awesomenauts/js/resources.js</file>
+            <file>file:/C:/xampp/htdocs/EsmeG-awesomenauts/data/img/gloop.png</file>
+            <file>file:/C:/xampp/htdocs/EsmeG-awesomenauts/index.php</file>
             <file>file:/C:/xampp/htdocs/EsmeG-awesomenauts/php/controller/create-db.php</file>
-            <file>file:/C:/xampp/htdocs/EsmeG-awesomenauts/js/game.js</file>
             <file>file:/C:/xampp/htdocs/EsmeG-awesomenauts/php/controller/create-user.php</file>
             <file>file:/C:/xampp/htdocs/EsmeG-awesomenauts/js/screens/title.js</file>
+            <file>file:/C:/xampp/htdocs/EsmeG-awesomenauts/js/entities/TeamCreep.js</file>
             <file>file:/C:/xampp/htdocs/EsmeG-awesomenauts/index.css</file>
-            <file>file:/C:/xampp/htdocs/EsmeG-awesomenauts/php/model/config.php</file>
-            <file>file:/C:/xampp/htdocs/EsmeG-awesomenauts/php/model/Database.php</file>
             <file>file:/C:/xampp/htdocs/EsmeG-awesomenauts/js/entities/SpearThrow.js</file>
             <file>file:/C:/xampp/htdocs/EsmeG-awesomenauts/php/controller/save-user.php</file>
         </group>

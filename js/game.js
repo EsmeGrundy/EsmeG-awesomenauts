@@ -14,7 +14,7 @@ var game = {
         enemyCreepAttack: 5,
         playerAttack: 1,
         playerAttackTimer: 1000,
-        creepAttackTimer: 1000,
+        creepAttackTimer: 2000,
         teamCreepAttackTimer: 1000,
         playerMoveSpeed: 5,
         creepMoveSpeeed: 5,
@@ -92,6 +92,7 @@ var game = {
         me.pool.register("Pause", game.Pause);
         me.state.set(me.state.MENU, new game.TitleScreen());
         me.state.set(me.state.PLAY, new game.PlayScreen());
+        me.state.set(me.state.RESTART, new game.RestartScreen());
         me.state.set(me.state.SPENDEXP, new game.SpendExp());
         me.state.set(me.state.NEW, new game.NewProfile());
         me.state.set(me.state.LOAD, new game.LoadProfile());

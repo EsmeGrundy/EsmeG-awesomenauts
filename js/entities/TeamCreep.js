@@ -11,11 +11,11 @@ game.TeamCreep = me.Entity.extend({
         this._super(me.Entity, "init", [x, y, {
                 image: "creep2",
                 height: 64,
-                width: 32,
+                width: 64,
                 spriteheight: "64",
-                spritewidth: "32",
+                spritewidth: "64",
                 getShape: function() {
-                    return(new me.Rect(0, 0, 32, 64)).toPolygon();
+                    return(new me.Rect(0, 0, 64, 64)).toPolygon();
                 }
 
             }]);
@@ -37,7 +37,7 @@ game.TeamCreep = me.Entity.extend({
         this.attacking = false;
     },
     addAnimations: function() {
-        this.renderable.addAnimation("walk", [0, 1, 2, 3, 4], 80);
+        this.renderable.addAnimation("walk", [69, 70, 71, 72, 73, 74, 75, 76, 77], 80);
         this.renderable.setCurrentAnimation("walk");
     },
     update: function(delta) {

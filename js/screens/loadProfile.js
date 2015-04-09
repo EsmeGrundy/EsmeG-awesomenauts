@@ -8,6 +8,7 @@ game.LoadProfile = me.ScreenObject.extend({
         me.input.unbindKey(me.input.KEY.W);
         me.input.unbindKey(me.input.KEY.E);
         me.input.unbindKey(me.input.KEY.A);
+        me.input.unbindKey(me.input.KEY.M);
         me.game.world.addChild(new (me.Renderable.extend({
             init: function() {
                 this._super(me.Renderable, 'init', [10, 10, 300, 50]);
