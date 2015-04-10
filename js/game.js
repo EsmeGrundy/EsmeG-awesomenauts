@@ -39,7 +39,7 @@ var game = {
         pauseScreen: "",
         buytext: "",
         pausetext: "", 
-        spearTimer: 15
+        spearTimer: 3000
 
 
     },

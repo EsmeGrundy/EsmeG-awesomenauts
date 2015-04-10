@@ -19,8 +19,8 @@ game.SpearThrow = me.Entity.extend({
             }]);
     },
     setAttributes: function(facing) {
-        this.body.setVelocity(0, 8);
-        this.attack = game.data.ability3 * 3;
+        this.body.setVelocity(8, 0);
+        this.attack = (game.data.ability3 * 2);
         this.facing = facing;
     },
     setFlags: function() {

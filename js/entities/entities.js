@@ -107,11 +107,14 @@ game.PlayerEntity = me.Entity.extend({
             //this.eatCreep();
         }
         else if (me.input.isKeyPressed("skill3")) {
+            game.data.ability3 += 1;
+            console.log("ability3" + game.data.ability3);
+            console.log("throw spear");
             this.throwSpear();
         }
     },
     throwSpear: function() {
-        if (this.lastSpear >= game.data.spearTimer && game.data.ability3 > 0){
+        if (this.now-this.lastSpear >= game.data.spearTimer && game.data.ability3 > 0){
             this.lastSpear = this.now;
             var spear = me.pool.pull("spear", this.pos.x, this.pos.y, {}, this.facing);
             me.game.world.addChild(spear, 10);
@@ -181,14 +184,14 @@ game.PlayerEntity = me.Entity.extend({
     stopMovement: function(xdif) {
         if (xdif > 30) {
             this.pos.x = this.pos.x + 1;
-            if (this.facing === "left") {
+//            if (this.facing === "left") {
                 this.body.vel.x === 0;
-            }
+//            }
         } else if(xdif < -30){
             this.pos.x = this.pos.x - 1;
-            if (this.facing === "right") {
+//            if (this.facing === "right") {
                 this.body.vel.x === 0;
-            }
+//            }
         }
     },
     checkAttack: function(xdif, ydif) {
