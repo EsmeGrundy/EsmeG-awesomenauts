@@ -24,6 +24,9 @@ game.PlayScreen = me.ScreenObject.extend({
         
         var pause = me.pool.pull("Pause", 0, 0, {});
         me.game.world.addChild(pause, 0);
+        
+        game.data.miniMap = me.pool.pull("miniMap", 10, 10, {});
+        me.game.world.addChild(game.data.miniMap, 30);
 
         me.input.bindKey(me.input.KEY.B, "buy");
         me.input.bindKey(me.input.KEY.Q, "skill1");
@@ -50,5 +53,8 @@ game.PlayScreen = me.ScreenObject.extend({
     resetPlayer: function(x, y) {
         game.data.player = me.pool.pull("orcSpear", x, y, {});
         me.game.world.addChild(game.data.player, 5);
+        
+        game.data.miniPlayer = me.pool.pull("miniPlayer", 10, 10, {});
+        me.game.world.addChild(game.data.miniPlayer, 31);
     }
 });

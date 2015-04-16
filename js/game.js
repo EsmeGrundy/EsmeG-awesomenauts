@@ -39,7 +39,9 @@ var game = {
         pauseScreen: "",
         buytext: "",
         pausetext: "", 
-        spearTimer: 3000
+        spearTimer: 3000,
+        miniMap: "",
+        miniPlayer: ""
 
 
     },
@@ -90,6 +92,8 @@ var game = {
         me.pool.register("ExperienceManager", game.ExperienceManager);
         me.pool.register("SpendGold", game.SpendGold);
         me.pool.register("Pause", game.Pause);
+        me.pool.register("miniMap", game.MiniMap, true);
+        me.pool.register("miniPlayer", game.MiniPlayerLocation, true);
         me.state.set(me.state.MENU, new game.TitleScreen());
         me.state.set(me.state.PLAY, new game.PlayScreen());
         me.state.set(me.state.RESTART, new game.RestartScreen());
