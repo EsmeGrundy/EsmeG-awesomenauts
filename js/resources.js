@@ -4,7 +4,7 @@ game.resources = [
      * {name: "example", type:"image", src: "data/img/example.png"},
      */
     {name: "background-tiles", type: "image", src: "data/img/background-tiles.png"},
-    {name: "background", type: "image", src: "data/img/background3.png"},
+    {name: "Background3", type: "image", src: "data/img/background3.png"},
     {name: "meta-tiles", type: "image", src: "data/img/meta-tiles.png"},
     {name: "orcSpear", type: "image", src: "data/img/orcSpear.png"},
     {name: "tower", type: "image", src: "data/img/tower_round.svg.png"},
@@ -18,7 +18,7 @@ game.resources = [
     {name: "restart-screen", type: "image", src: "data/img/game_over.png"},
     {name: "spear", type: "image", src: "data/img/spear.png"},
     {name: "pause-screen", type: "image", src: "data/img/pause-screen.jpg"},
-    {name: "mini-map", type: "image", src: "data/img/miniMap3.png"},
+    {name: "mini-map", type: "image", src: "data/img/miniMap4.png"},
     /* Atlases 
      * @example
      * {name: "example_tps", type: "tps", src: "data/img/example_tps.json"},

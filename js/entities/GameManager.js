@@ -21,13 +21,13 @@ game.GameTimerManager = Object.extend({
     creepTimerCheck: function() {
         if (Math.round(this.now / 2000) % 10 === 0 && (this.now - this.lastCreep >= game.data.creepAttackTimer)) {
             this.lastCreep = this.now;
-            var creep = me.pool.pull("EnemyCreep", 1000, 0, {});
+            var creep = me.pool.pull("EnemyCreep", 10000, 0, {});
             me.game.world.addChild(creep, 5);
         } else if (Math.round(this.now / 1000) % 10 === 0 && ((this.now - this.lastTeamCreep) >= game.data.teamCreepAttackTimer)) {
             this.lastTeamCreep = this.now;
-            var creept = me.pool.pull("TeamCreep", 1000, 0, {});
+            var creept = me.pool.pull("TeamCreep", 10000, 0, {});
             me.game.world.addChild(creept, 5);
-            console.log("team creep");
+//            console.log("team creep");
         }
     }
 });
@@ -38,6 +38,7 @@ game.HeroDeathManager = Object.extend({
     update: function() {
         if (game.data.player.dead) {
             me.game.world.removeChild(game.data.player);
+            me.game.world.removeChild(game.data.miniPlayer);
             me.state.current().resetPlayer(10, 0);
         }
         return true;
