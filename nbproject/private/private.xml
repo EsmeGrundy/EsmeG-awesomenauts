@@ -5,12 +5,10 @@
         <group>
             <file>file:/C:/xampp/htdocs/EsmeG-awesomenauts/js/entities/miniPlayerLocation.js</file>
             <file>file:/C:/xampp/htdocs/EsmeG-awesomenauts/js/resources.js</file>
-            <file>file:/C:/xampp/htdocs/EsmeG-awesomenauts/js/entities/miniMap.js</file>
-            <file>file:/C:/xampp/htdocs/EsmeG-awesomenauts/index.php</file>
-            <file>file:/C:/xampp/htdocs/EsmeG-awesomenauts/data/img/Background2.png</file>
-            <file>file:/C:/xampp/htdocs/EsmeG-awesomenauts/js/entities/EnemyBaseEntity.js</file>
+            <file>file:/C:/xampp/htdocs/EsmeG-awesomenauts/js/entities/TeamCreep.js</file>
+            <file>file:/C:/xampp/htdocs/EsmeG-awesomenauts/js/entities/PlayerBaseEntity.js</file>
             <file>file:/C:/xampp/htdocs/EsmeG-awesomenauts/js/screens/play.js</file>
-            <file>file:/C:/xampp/htdocs/EsmeG-awesomenauts/data/img/background-tiles.png</file>
+            <file>file:/C:/xampp/htdocs/EsmeG-awesomenauts/js/entities/GameManager.js</file>
         </group>
     </open-files>
 </project-private>

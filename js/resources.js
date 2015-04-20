@@ -31,11 +31,12 @@ game.resources = [
      */
     {name: "level01", type: "tmx", src: "data/map/test.tmx"},
     {name: "level02", type: "tmx", src: "data/map/Level03.tmx"},
-    {name: "level03", type: "tmx", src: "data/map/Level04.tmx"}
+    {name: "level03", type: "tmx", src: "data/map/Level04.tmx"},
     /* Background music. 
      * @example
      * {name: "example_bgm", type: "audio", src: "data/bgm/"},
      */
+    {name: "creep-die", type: "audio", src: "data/bgm/yellau.mp3"}
 
     /* Sound effects. 
      * @example

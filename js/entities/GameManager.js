@@ -21,11 +21,11 @@ game.GameTimerManager = Object.extend({
     creepTimerCheck: function() {
         if (Math.round(this.now / 2000) % 10 === 0 && (this.now - this.lastCreep >= game.data.creepAttackTimer)) {
             this.lastCreep = this.now;
-            var creep = me.pool.pull("EnemyCreep", 10000, 0, {});
+            var creep = me.pool.pull("EnemyCreep", 1000, 0, {});
             me.game.world.addChild(creep, 5);
         } else if (Math.round(this.now / 1000) % 10 === 0 && ((this.now - this.lastTeamCreep) >= game.data.teamCreepAttackTimer)) {
             this.lastTeamCreep = this.now;
-            var creept = me.pool.pull("TeamCreep", 10000, 0, {});
+            var creept = me.pool.pull("TeamCreep", 1000, 0, {});
             me.game.world.addChild(creept, 5);
 //            console.log("team creep");
         }
@@ -269,14 +269,13 @@ game.Pause = Object.extend({
                 this.stopPause();
             }
         }
-        this.checkMKey();
         return true;
     },
     startPause: function() {
-        this.buying = true;
+        this.pauseMenu = true;
         me.state.pause(me.state.PLAY);
         game.data.pausePos = me.game.viewport.localToWorld(0, 0);
-        game.data.pauseScreen = new me.Sprite(game.data.pausePos.x, game.data.pausePos.y, me.loader.getImage("pause-screen"));
+        game.data.pauseScreen = new me.Sprite(game.data.pausePos.x, game.data.pausePos.y, me.loader.getImage("restart-screen"));
         game.data.pauseScreen.updateWhenPaused = true;
         game.data.pauseScreen.setOpacity(0.8);
         me.game.world.addChild(game.data.pauseScreen, 34);
@@ -293,7 +292,7 @@ game.Pause = Object.extend({
             },
             draw: function(renderer) {
                 this.font.draw(renderer.getContext(), "PAUSE MENU", this.pos.x, this.pos.y);
-                this.font.draw(renderer.getContext(), "Press P to unpause, M to return to the main menu", this.pos.x + 50, this.pos.y + 40);
+                this.font.draw(renderer.getContext(), "Press P to unpause", this.pos.x + 50, this.pos.y + 40);
             }
         }));
         me.game.world.addChild(game.data.pausetext, 35);
@@ -304,11 +303,6 @@ game.Pause = Object.extend({
         game.data.player.body.setVelocity(game.data.playerMoveSpeed, 20);
         me.game.world.removeChild(game.data.pauseScreen);
         me.game.world.removeChild(game.data.pausetext);
-    },
-    checkMKey: function() {
-        if (me.input.isKeyPressed("menu")) {
-            me.state.change(me.state.MENU);
-        }
     }
 });
 

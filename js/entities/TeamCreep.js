@@ -51,6 +51,7 @@ game.TeamCreep = me.Entity.extend({
     },
     checkIfDead: function() {
         if (this.health <= 0) {
+            me.audio.play("creep-die");
             me.game.world.removeChild(this);
         }
     },
