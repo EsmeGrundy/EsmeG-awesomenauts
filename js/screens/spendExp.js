@@ -34,7 +34,14 @@ game.SpendExp = me.ScreenObject.extend({
                     console.log("NOT ENOUGH EXP");
                 }
             } else if (action === "F2") {
-
+                if (game.data.exp >= goldProductionCost) {
+                    game.data.exp1 += 1;
+                    game.data.exp -= goldProductionCost;
+                    me.state.change(me.state.PLAY);
+                }
+                else{
+                    console.log("NOT ENOUGH EXP");
+                }
             }
             else if (action === "F3") {
 

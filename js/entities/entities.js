@@ -114,7 +114,7 @@ game.PlayerEntity = me.Entity.extend({
         }
     },
     throwSpear: function() {
-        if (this.now-this.lastSpear >= game.data.spearTimer && game.data.ability3 > 0){
+        if (this.now - this.lastSpear >= game.data.spearTimer && game.data.ability3 > 0) {
             this.lastSpear = this.now;
             var spear = me.pool.pull("spear", this.pos.x, this.pos.y, {}, this.facing);
             me.game.world.addChild(spear, 10);
@@ -147,6 +147,12 @@ game.PlayerEntity = me.Entity.extend({
         }
         else if (response.b.type === 'EnemyCreep') {
             this.collideWithEnemyCreep(response);
+        }
+        else if (response.b.type === 'TeamCreep') {
+            this.collideWithTeamCreep(response);
+        }
+        else if (response.b.type === 'TeamCreep2') {
+            this.collideWithTeamCreep2(response);
         }
     },
     collideWithEnemyBase: function(response) {
@@ -181,16 +187,36 @@ game.PlayerEntity = me.Entity.extend({
             this.hitCreep(response);
         }
     },
+    collideWithTeamCreep: function(response) {
+        var xdif = this.pos.x - response.b.pos.x;
+        var ydif = this.pos.y - response.b.pos.y;
+
+        console.log("xdif: " + xdif);
+        this.stopMovement(xdif);
+        if (this.checkAttack(xdif, ydif)) {
+            this.hitCreep(response);
+        }
+    },
+    collideWithTeamCreep2: function(response) {
+        var xdif = this.pos.x - response.b.pos.x;
+        var ydif = this.pos.y - response.b.pos.y;
+
+        console.log("xdif: " + xdif);
+        this.stopMovement(xdif);
+        if (this.checkAttack(xdif, ydif)) {
+            this.hitCreep(response);
+        }
+    },
     stopMovement: function(xdif) {
         if (xdif > 30) {
             this.pos.x = this.pos.x + 1;
 //            if (this.facing === "left") {
-                this.body.vel.x === 0;
+            this.body.vel.x === 0;
 //            }
-        } else if(xdif < -30){
+        } else if (xdif < -30) {
             this.pos.x = this.pos.x - 1;
 //            if (this.facing === "right") {
-                this.body.vel.x === 0;
+            this.body.vel.x === 0;
 //            }
         }
     },

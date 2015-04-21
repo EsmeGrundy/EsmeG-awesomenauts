@@ -1,15 +1,15 @@
-game.TeamCreep = me.Entity.extend({
+game.TeamCreep2 = me.Entity.extend({
     init: function(x, y, settings) {
         this.setSuper(x, y, {});
         this.setCreepTimers();
         this.setAttributes();
         this.setFlags();
-        this.type = "TeamCreep";
+        this.type = "TeamCreep2";
         this.addAnimations();
     },
     setSuper: function(x, y, settings) {
         this._super(me.Entity, "init", [x, y, {
-                image: "creep2",
+                image: "creep3",
                 height: 64,
                 width: 64,
                 spriteheight: "64",
@@ -37,7 +37,7 @@ game.TeamCreep = me.Entity.extend({
         this.attacking = false;
     },
     addAnimations: function() {
-        this.renderable.addAnimation("walk", [69, 70, 71, 72, 73, 74, 75, 76, 77], 80);
+        this.renderable.addAnimation("walk", [58, 59, 60, 61, 62, 63, 64, 65, 66, 67], 80);
         this.renderable.setCurrentAnimation("walk");
     },
     update: function(delta) {
@@ -100,6 +100,7 @@ game.TeamCreep = me.Entity.extend({
     }
 
 });
+
 
 
 

@@ -3,6 +3,7 @@ game.GameTimerManager = Object.extend({
         this.now = new Date().getTime();
         this.lastCreep = new Date().getTime();
         this.lastTeamCreep = new Date().getTime();
+        this.lastTeamCreep2 = new Date().getTime();
         this.paused = false;
         this.alwaysUpdate = true;
     },
@@ -21,14 +22,20 @@ game.GameTimerManager = Object.extend({
     creepTimerCheck: function() {
         if (Math.round(this.now / 2000) % 10 === 0 && (this.now - this.lastCreep >= game.data.creepAttackTimer)) {
             this.lastCreep = this.now;
-            var creep = me.pool.pull("EnemyCreep", 1000, 0, {});
+            var creep = me.pool.pull("EnemyCreep", 2700, 0, {});
             me.game.world.addChild(creep, 5);
         } else if (Math.round(this.now / 1000) % 10 === 0 && ((this.now - this.lastTeamCreep) >= game.data.teamCreepAttackTimer)) {
             this.lastTeamCreep = this.now;
-            var creept = me.pool.pull("TeamCreep", 1000, 0, {});
+            var creept = me.pool.pull("TeamCreep", 2700, 0, {});
             me.game.world.addChild(creept, 5);
 //            console.log("team creep");
-        }
+        } 
+//        else if (Math.round(this.now / 500) % 10 === 0 && ((this.now - this.lastTeamCreep2) >= game.data.teamCreep2AttackTimer)) {
+//            this.lastTeamCreep2 = this.now;
+//            var creept2 = me.pool.pull("TeamCreep2", 2000, 0, {});
+//            me.game.world.addChild(creept2, 5);
+////            console.log("team creep");
+//        }
     }
 });
 game.HeroDeathManager = Object.extend({

@@ -16,6 +16,7 @@ var game = {
         playerAttackTimer: 1000,
         creepAttackTimer: 2000,
         teamCreepAttackTimer: 1000,
+        teamCreep2AttackTimer: 500,
         playerMoveSpeed: 5,
         creepMoveSpeeed: 5,
         gameTimerManager: "",
@@ -86,6 +87,7 @@ var game = {
         me.pool.register("EnemyBase", game.EnemyBaseEntity);
         me.pool.register("EnemyCreep", game.EnemyCreep, true);
         me.pool.register("TeamCreep", game.TeamCreep, true);
+//        me.pool.register("TeamCreep2", game.TeamCreep2, true);
         me.pool.register("Spear", game.SpearThrow);
         me.pool.register("GameTimerManager", game.GameTimerManager);
         me.pool.register("HeroDeathManager", game.HeroDeathManager);

@@ -10,6 +10,7 @@ game.resources = [
     {name: "tower", type: "image", src: "data/img/tower_round.svg.png"},
     {name: "creep1", type: "image", src: "data/img/brainmonster.png"},
     {name: "creep2", type: "image", src: "data/img/wizard.png"},
+    {name: "creep3", type: "image", src: "data/img/skeleton.png"},
     {name: "title-screen", type: "image", src: "data/img/title.png"},
     {name: "gold-screen", type: "image", src: "data/img/spend.png"},
     {name: "exp-screen", type: "image", src: "data/img/loadpic.png"},
@@ -31,15 +32,16 @@ game.resources = [
      */
     {name: "level01", type: "tmx", src: "data/map/test.tmx"},
     {name: "level02", type: "tmx", src: "data/map/Level03.tmx"},
-    {name: "level03", type: "tmx", src: "data/map/Level04.tmx"},
+    {name: "level03", type: "tmx", src: "data/map/Level04.tmx"}
     /* Background music. 
      * @example
      * {name: "example_bgm", type: "audio", src: "data/bgm/"},
      */
-    {name: "creep-die", type: "audio", src: "data/bgm/yellau.mp3"}
+    
 
     /* Sound effects. 
      * @example
      * {name: "example_sfx", type: "audio", src: "data/sfx/"}
      */
+//    {name: "creep-die", type: "audio", src: "data/sfx/yellau.mp3"}
 ];
