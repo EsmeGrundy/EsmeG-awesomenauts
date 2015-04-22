@@ -28,13 +28,11 @@ game.GameTimerManager = Object.extend({
             this.lastTeamCreep = this.now;
             var creept = me.pool.pull("TeamCreep", 2700, 0, {});
             me.game.world.addChild(creept, 5);
-//            console.log("team creep");
         } 
 //        else if (Math.round(this.now / 500) % 10 === 0 && ((this.now - this.lastTeamCreep2) >= game.data.teamCreep2AttackTimer)) {
 //            this.lastTeamCreep2 = this.now;
 //            var creept2 = me.pool.pull("TeamCreep2", 2000, 0, {});
 //            me.game.world.addChild(creept2, 5);
-////            console.log("team creep");
 //        }
     }
 });
