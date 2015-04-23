@@ -37,7 +37,7 @@ game.TeamCreep2 = me.Entity.extend({
         this.attacking = false;
     },
     addAnimations: function() {
-        this.renderable.addAnimation("walk", [58, 59, 60, 61, 62, 63, 64, 65, 66, 67], 80);
+        this.renderable.addAnimation("walk", [0, 1, 2, 3, 4], 80);
         this.renderable.setCurrentAnimation("walk");
     },
     update: function(delta) {

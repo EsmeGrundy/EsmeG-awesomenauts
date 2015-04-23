@@ -44,6 +44,21 @@ game.MiniPlayerLocation = me.Entity.extend({
     update: function(){
         this.pos.x = (10 + (game.data.player.pos.x * 0.24));
         this.pos.y = (10 + (game.data.player.pos.y * 0.24));
+        
+         if(me.input.isKeyPressed("map")){
+           if(this.map){
+               this.hideMap();
+           }else{
+               this.showMap();
+           }
+       }
+        return true;
+    },
+    hideMap: function(){
+        me.game.world.removeChild(game.MiniPlayerLocation);
+    },
+    showMap: function(){
+        me.game.world.addChild(game.MiniPlayerLocation);
     }
 });
 

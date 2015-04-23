@@ -29,11 +29,11 @@ game.GameTimerManager = Object.extend({
             var creept = me.pool.pull("TeamCreep", 2700, 0, {});
             me.game.world.addChild(creept, 5);
         } 
-//        else if (Math.round(this.now / 500) % 10 === 0 && ((this.now - this.lastTeamCreep2) >= game.data.teamCreep2AttackTimer)) {
-//            this.lastTeamCreep2 = this.now;
-//            var creept2 = me.pool.pull("TeamCreep2", 2000, 0, {});
-//            me.game.world.addChild(creept2, 5);
-//        }
+        else if (Math.round(this.now / 500) % 10 === 0 && ((this.now - this.lastTeamCreep2) >= game.data.teamCreep2AttackTimer)) {
+            this.lastTeamCreep2 = this.now;
+            var creept2 = me.pool.pull("TeamCreep2", 2700, 0, {});
+            me.game.world.addChild(creept2, 5);
+        }
     }
 });
 game.HeroDeathManager = Object.extend({

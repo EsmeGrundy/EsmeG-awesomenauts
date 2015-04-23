@@ -11,7 +11,7 @@ game.PlayerEntity = me.Entity.extend({
     },
     setSuper: function(x, y, settings) {
         this._super(me.Entity, "init", [x, y, {
-                image: "orcSpear",
+                image: "seaKing",
                 height: 64,
                 width: 64,
                 spriteheight: "64",
@@ -39,9 +39,9 @@ game.PlayerEntity = me.Entity.extend({
         this.attacking = false;
     },
     addAnimation: function() {
-        this.renderable.addAnimation("idle", [78]);
-        this.renderable.addAnimation("walk", [117, 118, 119, 120, 121, 122, 123, 124, 125], 80);
-        this.renderable.addAnimation("attack", [65, 66, 67, 68, 69, 70, 71, 72], 80);
+        this.renderable.addAnimation("idle", [8]);
+        this.renderable.addAnimation("walk", [8, 9, 10, 11, 12, 13, 14, 15], 80);
+        this.renderable.addAnimation("attack", [0, 1, 2, 3, 4, 5, 6, 7], 80);
     },
     update: function(delta) {
         this.now = new Date().getTime();
@@ -86,12 +86,12 @@ game.PlayerEntity = me.Entity.extend({
     moveRight: function() {
         this.facing = "right";
         this.body.vel.x += this.body.accel.x * me.timer.tick;
-        this.flipX(true);
+        this.flipX(false);
     },
     moveLeft: function() {
         this.facing = "left";
         this.body.vel.x -= this.body.accel.x * me.timer.tick;
-        this.flipX(false);
+        this.flipX(true);
     },
     jump: function() {
         //sets mario's velocity in the y direction to the y velocity from setVelocity and smooths animation
