@@ -29,7 +29,7 @@ if ($query->num_rows === 1) {  //if there is only one row where the username is 
         $array["exp2"] = $row["exp2"];
         $array["exp3"] = $row["exp3"];
         $array["exp4"] = $row["exp4"];
-        $_SEESION["name"] = $username;
+        $_SESSION["name"] = $username;
         echo json_encode($array);
     } else {
         echo "Invalid Username and Password";

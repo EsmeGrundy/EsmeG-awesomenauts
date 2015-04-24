@@ -19,8 +19,10 @@ game.resources = [
     {name: "new-screen", type: "image", src: "data/img/newpic.png"},
     {name: "restart-screen", type: "image", src: "data/img/game_over.png"},
     {name: "spear", type: "image", src: "data/img/spear.png"},
+    {name: "whirlpool", type: "image", src: "data/img/whirlpool.png"},
     {name: "pause-screen", type: "image", src: "data/img/pause-screen.jpg"},
     {name: "mini-map", type: "image", src: "data/img/miniMap4.png"},
+    {name: "bubble", type: "image", src: "data/img/Bubble.png"},
     /* Atlases 
      * @example
      * {name: "example_tps", type: "tps", src: "data/img/example_tps.json"},

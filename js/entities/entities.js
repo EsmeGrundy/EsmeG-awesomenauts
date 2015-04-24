@@ -26,6 +26,8 @@ game.PlayerEntity = me.Entity.extend({
         this.now = new Date().getTime();
         this.lastHit = this.now;
         this.lastSpear = this.now;
+         this.lastWhirlpool = this.now;
+         this.lastBurst = this.now;
         this.lastAttack = new Date().getTime();
     },
     setAttributes: function() {
@@ -101,10 +103,12 @@ game.PlayerEntity = me.Entity.extend({
     },
     checkAbilityKeys: function() {
         if (me.input.isKeyPressed("skill1")) {
-            //this.speedBurst();
+            game.data.ability1 += 1;
+            this.Bubble();
         }
         else if (me.input.isKeyPressed("skill2")) {
-            //this.eatCreep();
+            game.data.ability2 += 1;
+            this.makeWhirlpool();
         }
         else if (me.input.isKeyPressed("skill3")) {
             game.data.ability3 += 1;
@@ -118,6 +122,20 @@ game.PlayerEntity = me.Entity.extend({
             this.lastSpear = this.now;
             var spear = me.pool.pull("spear", this.pos.x, this.pos.y, {}, this.facing);
             me.game.world.addChild(spear, 10);
+        }
+    },
+    makeWhirlpool: function() {
+        if (this.now - this.lastWhirlpool >= game.data.whirlpoolTimer && game.data.ability2 > 0) {
+            this.lastWhirlpool = this.now;
+            var whirlpool = me.pool.pull("whirlpool", this.pos.x, this.pos.y, {}, this.facing);
+            me.game.world.addChild(whirlpool, 10);
+        }
+    },
+    Bubble: function(){
+         if (this.now - this.lastBurst>= game.data.burstTimer && game.data.ability1 > 0) {
+            this.lastBurst = this.now;
+            var bubble = me.pool.pull("bubble", this.pos.x, this.pos.y, {}, this.facing);
+            me.game.world.addChild(bubble, 10);
         }
     },
     setAnimation: function() {

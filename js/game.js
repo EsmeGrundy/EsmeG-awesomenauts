@@ -17,8 +17,9 @@ var game = {
         creepAttackTimer: 2000,
         teamCreepAttackTimer: 1000,
         teamCreep2AttackTimer: 500,
+        bubbleTimer: 250,
         playerMoveSpeed: 5,
-        creepMoveSpeeed: 5,
+        creepMoveSpeed: 5,
         gameTimerManager: "",
         HeroDeathManager: "",
         player: "",
@@ -41,6 +42,8 @@ var game = {
         buytext: "",
         pausetext: "", 
         spearTimer: 3000,
+        whirlpoolTimer: 5000,
+        burstTimer: 1000,
         miniMap: "",
         miniPlayer: ""
 
@@ -89,6 +92,8 @@ var game = {
         me.pool.register("TeamCreep", game.TeamCreep, true);
         me.pool.register("TeamCreep2", game.TeamCreep2, true);
         me.pool.register("Spear", game.SpearThrow);
+        me.pool.register("Whirlpool", game.Whirlpool);
+        me.pool.register("Bubble", game.Bubble);
         me.pool.register("GameTimerManager", game.GameTimerManager);
         me.pool.register("HeroDeathManager", game.HeroDeathManager);
         me.pool.register("ExperienceManager", game.ExperienceManager);

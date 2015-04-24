@@ -1,19 +1,19 @@
-game.SpearThrow = me.Entity.extend({
+game.Bubble = me.Entity.extend({
     init: function(x, y, settings) {
         this.setSuper(x, y, {});
         this.setAttributes();
         this.setFlags();
-        this.type = "spear";
+        this.type = "bubble";
     },
     setSuper: function(x, y, settings) {
         this._super(me.Entity, "init", [x, y, {
-                image: "spear",
-                height: 48,
-                width: 48,
-                spriteheight: "48",
-                spritewidth: "48",
+                image: "bubble",
+                height: 64,
+                width: 64,
+                spriteheight: "64",
+                spritewidth: "64",
                 getShape: function() {
-                    return(new me.Rect(0, 0, 48, 48)).toPolygon();
+                    return(new me.Rect(0, 0, 64, 64)).toPolygon();
                 }
 
             }]);
@@ -47,6 +47,7 @@ game.SpearThrow = me.Entity.extend({
         }
     }
 });
+
 
 
 

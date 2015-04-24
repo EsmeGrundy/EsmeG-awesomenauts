@@ -56,8 +56,10 @@ require_once("php/controller/create-db.php");
         <script type="text/javascript" src="js/entities/TeamCreep2.js"></script>
         <script type="text/javascript" src="js/entities/HUD.js"></script>
         <script type="text/javascript" src="js/entities/SpearThrow.js"></script>
+        <script type="text/javascript" src="js/entities/Whirlpool.js"></script>
         <script type="text/javascript" src="js/entities/miniMap.js"></script>
         <script type="text/javascript" src="js/entities/miniPlayerLocation.js"></script>
+        <script type="text/javascript" src="js/entities/Bubble.js"></script>
 
         <script type="text/javascript" src="js/screens/title.js"></script>
         <script type="text/javascript" src="js/screens/play.js"></script>

@@ -3,10 +3,20 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/xampp/htdocs/EsmeG-awesomenauts/data/img/SeaKing.png</file>
             <file>file:/C:/xampp/htdocs/EsmeG-awesomenauts/js/resources.js</file>
-            <file>file:/C:/xampp/htdocs/EsmeG-awesomenauts/data/img/orcSpear.png</file>
+            <file>file:/C:/xampp/htdocs/EsmeG-awesomenauts/js/entities/Whirlpool.js</file>
+            <file>file:/C:/xampp/htdocs/EsmeG-awesomenauts/php/controller/create-db.php</file>
+            <file>file:/C:/xampp/htdocs/EsmeG-awesomenauts/js/entities/Bubble.js</file>
+            <file>file:/C:/xampp/htdocs/EsmeG-awesomenauts/php/model/config.php</file>
             <file>file:/C:/xampp/htdocs/EsmeG-awesomenauts/js/entities/entities.js</file>
+            <file>file:/C:/xampp/htdocs/EsmeG-awesomenauts/js/screens/spendExp.js</file>
+            <file>file:/C:/xampp/htdocs/EsmeG-awesomenauts/index.php</file>
+            <file>file:/C:/xampp/htdocs/EsmeG-awesomenauts/js/game.js</file>
+            <file>file:/C:/xampp/htdocs/EsmeG-awesomenauts/js/entities/SpearThrow.js</file>
+            <file>file:/C:/xampp/htdocs/EsmeG-awesomenauts/js/screens/play.js</file>
+            <file>file:/C:/xampp/htdocs/EsmeG-awesomenauts/php/controller/save-user.php</file>
+            <file>file:/C:/xampp/htdocs/EsmeG-awesomenauts/js/entities/GameManager.js</file>
+            <file>file:/C:/xampp/htdocs/EsmeG-awesomenauts/php/controller/login-user.php</file>
         </group>
     </open-files>
 </project-private>

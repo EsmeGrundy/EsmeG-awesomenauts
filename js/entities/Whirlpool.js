@@ -1,13 +1,13 @@
-game.SpearThrow = me.Entity.extend({
+game.Whirlpool = me.Entity.extend({
     init: function(x, y, settings) {
         this.setSuper(x, y, {});
         this.setAttributes();
         this.setFlags();
-        this.type = "spear";
+        this.type = "whirlpool";
     },
     setSuper: function(x, y, settings) {
         this._super(me.Entity, "init", [x, y, {
-                image: "spear",
+                image: "whirlpool",
                 height: 48,
                 width: 48,
                 spriteheight: "48",
@@ -19,8 +19,8 @@ game.SpearThrow = me.Entity.extend({
             }]);
     },
     setAttributes: function(facing) {
-        this.body.setVelocity(8, 0);
-        this.attack = (game.data.ability3 * 2);
+        this.body.setVelocity(5, 0);
+        this.attack = (game.data.ability2 * 3);
         this.facing = facing;
     },
     setFlags: function() {

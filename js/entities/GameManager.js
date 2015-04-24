@@ -4,6 +4,7 @@ game.GameTimerManager = Object.extend({
         this.lastCreep = new Date().getTime();
         this.lastTeamCreep = new Date().getTime();
         this.lastTeamCreep2 = new Date().getTime();
+        this.lastBubble = new Date().getTime();
         this.paused = false;
         this.alwaysUpdate = true;
     },
@@ -11,6 +12,7 @@ game.GameTimerManager = Object.extend({
         this.now = new Date().getTime();
         this.goldTimerCheck();
         this.creepTimerCheck();
+        this.bubbleTimerCheck();
         return true;
     },
     goldTimerCheck: function() {
@@ -33,6 +35,13 @@ game.GameTimerManager = Object.extend({
             this.lastTeamCreep2 = this.now;
             var creept2 = me.pool.pull("TeamCreep2", 2700, 0, {});
             me.game.world.addChild(creept2, 5);
+        }
+    },
+    bubbleTimerCheck: function(){
+        if (Math.round(this.now / 250) % 10 === 0 && (this.now - this.lastBubble >= game.data.bubbleTimer)) {
+            this.lastBubble = this.now;
+            var bubble = me.pool.pull("Bubble", 100, 663, {});
+            me.game.world.addChild(bubble, 10);
         }
     }
 });
@@ -57,10 +66,8 @@ game.ExperienceManager = Object.extend({
     update: function() {
         if (game.data.win === true && !this.gameover) {
             this.gameOver(true);
-            alert("YOU WIN!");
         } else if (game.data.win === false && !this.gameover) {
             this.gameOver(false);
-            alert("YOU LOSE!");
         }
         return true;
     },
@@ -151,7 +158,7 @@ game.SpendGold = Object.extend({
                 this.font.draw(renderer.getContext(), "SKILL 2: RUN FASTER, CURRENT LEVEL: " + game.data.skill2 + ", COST: " + ((game.data.skill2 + 1) * 10), this.pos.x + 50, this.pos.y + 80);
                 this.font.draw(renderer.getContext(), "SKILL 3: INCREASE HEALTH, CURRENT LEVEL: " + game.data.skill3 + ", COST: " + ((game.data.skill3 + 1) * 10), this.pos.x + 50, this.pos.y + 120);
                 this.font.draw(renderer.getContext(), "Q ABILITY: SPEED BURST, CURRENT LEVEL: " + game.data.ability1 + ", COST: " + ((game.data.ability1 + 1) * 10), this.pos.x + 50, this.pos.y + 160);
-                this.font.draw(renderer.getContext(), "W ABILITY: EAT CREEP FOR HEALTH, CURRENT LEVEL: " + game.data.ability2 + ", COST: " + ((game.data.ability2 + 1) * 10), this.pos.x + 50, this.pos.y + 200);
+                this.font.draw(renderer.getContext(), "W ABILITY: MAKE WHIRLPOOL, CURRENT LEVEL: " + game.data.ability2 + ", COST: " + ((game.data.ability2 + 1) * 10), this.pos.x + 50, this.pos.y + 200);
                 this.font.draw(renderer.getContext(), "E ABILITY: THROW SPEAR, CURRENT LEVEL: " + game.data.ability3 + ", COST: " + ((game.data.ability3 + 1) * 10), this.pos.x + 50, this.pos.y + 240);
             }
         }));
