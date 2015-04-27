@@ -48,6 +48,7 @@ require_once("php/controller/create-db.php");
         <script type="text/javascript" src="js/resources.js"></script>
 
         <script type="text/javascript" src="js/entities/entities.js"></script>
+        <script type="text/javascript" src="js/entities/SeaKing.js"></script>
         <script type="text/javascript" src="js/entities/GameManager.js"></script>
         <script type="text/javascript" src="js/entities/PlayerBaseEntity.js"></script>
         <script type="text/javascript" src="js/entities/EnemyBaseEntity.js"></script>
@@ -64,6 +65,7 @@ require_once("php/controller/create-db.php");
         <script type="text/javascript" src="js/screens/title.js"></script>
         <script type="text/javascript" src="js/screens/play.js"></script>
         <script type="text/javascript" src="js/screens/spendExp.js"></script>
+        <script type="text/javascript" src="js/screens/Characters.js"></script>
         <script type="text/javascript" src="js/screens/newProfile.js"></script>
         <script type="text/javascript" src="js/screens/loadProfile.js"></script>
         <script type="text/javascript" src="js/screens/restart.js"></script>

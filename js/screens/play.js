@@ -51,7 +51,7 @@ game.PlayScreen = me.ScreenObject.extend({
         me.game.world.removeChild(this.HUD);
     },
     resetPlayer: function(x, y) {
-        game.data.player = me.pool.pull("orcSpear", x, y, {});
+        game.data.player = me.pool.pull(game.data.character, x, y, {});
         me.game.world.addChild(game.data.player, 5);
         
         game.data.miniPlayer = me.pool.pull("miniPlayer", 10, 10, {});

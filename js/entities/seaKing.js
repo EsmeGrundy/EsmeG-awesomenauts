@@ -1,4 +1,4 @@
-game.PlayerEntity = me.Entity.extend({
+game.SeaKing = me.Entity.extend({
     init: function(x, y, settings) {
         this.setSuper(x, y, settings);
         this.setPlayerTimers();
@@ -11,7 +11,7 @@ game.PlayerEntity = me.Entity.extend({
     },
     setSuper: function(x, y, settings) {
         this._super(me.Entity, "init", [x, y, {
-                image: "orcSpear",
+                image: "seaKing",
                 height: 64,
                 width: 64,
                 spriteheight: "64",
@@ -26,8 +26,8 @@ game.PlayerEntity = me.Entity.extend({
         this.now = new Date().getTime();
         this.lastHit = this.now;
         this.lastSpear = this.now;
-        this.lastWhirlpool = this.now;
-        this.lastBurst = this.now;
+         this.lastWhirlpool = this.now;
+         this.lastBurst = this.now;
         this.lastAttack = new Date().getTime();
     },
     setAttributes: function() {
@@ -41,10 +41,9 @@ game.PlayerEntity = me.Entity.extend({
         this.attacking = false;
     },
     addAnimation: function() {
-        this.renderable.addAnimation("idle", [78]);
-        this.renderable.addAnimation("walk", [117, 118, 119, 120, 121, 122, 123, 124], 80);
-        this.renderable.addAnimation("attack", [65, 66, 67, 68, 69, 70, 71, 72], 80);
-        this.renderable.addAnimation("useless", [96, 97, 98, 99, 100, 101], 80);
+        this.renderable.addAnimation("idle", [8]);
+        this.renderable.addAnimation("walk", [8, 9, 10, 11, 12, 13, 14, 15], 80);
+        this.renderable.addAnimation("attack", [0, 1, 2, 3, 4, 5, 6, 7], 80);
     },
     update: function(delta) {
         this.now = new Date().getTime();
@@ -89,12 +88,12 @@ game.PlayerEntity = me.Entity.extend({
     moveRight: function() {
         this.facing = "right";
         this.body.vel.x += this.body.accel.x * me.timer.tick;
-        this.flipX(true);
+        this.flipX(false);
     },
     moveLeft: function() {
         this.facing = "left";
         this.body.vel.x -= this.body.accel.x * me.timer.tick;
-        this.flipX(false);
+        this.flipX(true);
     },
     jump: function() {
         //sets mario's velocity in the y direction to the y velocity from setVelocity and smooths animation
@@ -125,15 +124,18 @@ game.PlayerEntity = me.Entity.extend({
             me.game.world.addChild(spear, 10);
         }
     },
-    makeWhirlpool: function(response) {
+    makeWhirlpool: function() {
         if (this.now - this.lastWhirlpool >= game.data.whirlpoolTimer && game.data.ability2 > 0) {
             this.lastWhirlpool = this.now;
-            this.renderable.setCurrentAnimation("useless");
+            var whirlpool = me.pool.pull("whirlpool", this.pos.x, this.pos.y, {}, this.facing);
+            me.game.world.addChild(whirlpool, 10);
         }
     },
-    Bubble: function() {
-        if (this.now - this.lastBurst >= game.data.burstTimer && game.data.ability1 > 0) {
+    Bubble: function(){
+         if (this.now - this.lastBurst>= game.data.burstTimer && game.data.ability1 > 0) {
             this.lastBurst = this.now;
+            var bubble = me.pool.pull("bubble", this.pos.x, this.pos.y, {}, this.facing);
+            me.game.world.addChild(bubble, 10);
         }
     },
     setAnimation: function() {
@@ -252,6 +254,7 @@ game.PlayerEntity = me.Entity.extend({
         response.b.loseHealth(game.data.playerAttack);
     }
 });
+
 
 
 

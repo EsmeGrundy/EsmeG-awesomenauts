@@ -9,7 +9,7 @@ var game = {
         option2: "",
         enemyBaseHealth: 10,
         playerBaseHealth: 10,
-        enemyCreepHealth: 1,
+        enemyCreepHealth: 5,
         playerHealth: 10,
         enemyCreepAttack: 5,
         playerAttack: 1,
@@ -40,12 +40,13 @@ var game = {
         buyscreen: "",
         pauseScreen: "",
         buytext: "",
-        pausetext: "", 
+        pausetext: "",
         spearTimer: 3000,
         whirlpoolTimer: 5000,
         burstTimer: 1000,
         miniMap: "",
-        miniPlayer: ""
+        miniPlayer: "",
+        character: ""
 
 
     },
@@ -70,6 +71,8 @@ var game = {
 
         me.state.LOAD = 114;
 
+        me.state.CHAR = 115;
+
         // Initialize the audio.
         me.audio.init("mp3,ogg");
 
@@ -85,6 +88,7 @@ var game = {
     // Run on game resources loaded.
     "loaded": function() {
         me.pool.register("orcSpear", game.PlayerEntity, true);
+        me.pool.register("seaKing", game.SeaKing, true);
 
         me.pool.register("PlayerBase", game.PlayerBaseEntity);
         me.pool.register("EnemyBase", game.EnemyBaseEntity);
@@ -107,6 +111,7 @@ var game = {
         me.state.set(me.state.SPENDEXP, new game.SpendExp());
         me.state.set(me.state.NEW, new game.NewProfile());
         me.state.set(me.state.LOAD, new game.LoadProfile());
+        me.state.set(me.state.CHAR, new game.Characters());
 
         // Start the game.
         me.state.change(me.state.MENU);
