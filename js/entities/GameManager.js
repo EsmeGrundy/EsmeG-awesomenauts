@@ -18,7 +18,6 @@ game.GameTimerManager = Object.extend({
     goldTimerCheck: function() {
         if (Math.round(this.now / 1000) % 20 === 0 && (this.now - this.lastCreep >= game.data.creepAttackTimer)) {
             game.data.gold += (Number(game.data.exp1) + 1);
-            console.log("current gold: " + game.data.gold);
         }
     },
     creepTimerCheck: function() {
@@ -289,7 +288,7 @@ game.Pause = Object.extend({
         game.data.pausePos = me.game.viewport.localToWorld(0, 0);
         game.data.pauseScreen = new me.Sprite(game.data.pausePos.x, game.data.pausePos.y, me.loader.getImage("restart-screen"));
         game.data.pauseScreen.updateWhenPaused = true;
-        game.data.pauseScreen.setOpacity(0.8);
+        game.data.pauseScreen.setOpacity(0.9);
         me.game.world.addChild(game.data.pauseScreen, 34);
         game.data.player.body.setVelocity(0, 0);
         this.setPauseText();

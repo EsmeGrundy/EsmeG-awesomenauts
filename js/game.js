@@ -9,9 +9,9 @@ var game = {
         option2: "",
         enemyBaseHealth: 10,
         playerBaseHealth: 10,
-        enemyCreepHealth: 5,
+        enemyCreepHealth: 2,
         playerHealth: 10,
-        enemyCreepAttack: 5,
+        enemyCreepAttack: 2,
         playerAttack: 1,
         playerAttackTimer: 1000,
         creepAttackTimer: 2000,
@@ -89,6 +89,7 @@ var game = {
     "loaded": function() {
         me.pool.register("orcSpear", game.PlayerEntity, true);
         me.pool.register("seaKing", game.SeaKing, true);
+        me.pool.register("fish", game.Fish, true);
 
         me.pool.register("PlayerBase", game.PlayerBaseEntity);
         me.pool.register("EnemyBase", game.EnemyBaseEntity);

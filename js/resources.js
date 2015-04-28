@@ -8,6 +8,7 @@ game.resources = [
     {name: "meta-tiles", type: "image", src: "data/img/meta-tiles.png"},
     {name: "orcSpear", type: "image", src: "data/img/orcSpear.png"},
     {name: "seaKing", type: "image", src: "data/img/SeaKing.png"},
+    {name: "fish", type: "image", src: "data/img/Fish.png"},
     {name: "tower", type: "image", src: "data/img/tower_round.svg.png"},
     {name: "creep1", type: "image", src: "data/img/brainmonster.png"},
     {name: "creep2", type: "image", src: "data/img/wizard.png"},
@@ -40,7 +41,7 @@ game.resources = [
      * @example
      * {name: "example_bgm", type: "audio", src: "data/bgm/"},
      */
-    
+
 
     /* Sound effects. 
      * @example
