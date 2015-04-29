@@ -46,7 +46,8 @@ var game = {
         burstTimer: 1000,
         miniMap: "",
         miniPlayer: "",
-        character: ""
+        character: "",
+        explodeTimer: 1000
 
 
     },
@@ -64,13 +65,18 @@ var game = {
                 me.plugin.register.defer(this, debugPanel, "debug");
             });
         }
-
+        
+        //create new states for each new screen created
+        //creates the spend experience state
         me.state.SPENDEXP = 112;
 
+        //creates the new user state
         me.state.NEW = 113;
 
+        //created the load user state
         me.state.LOAD = 114;
 
+        //creates the character state
         me.state.CHAR = 115;
 
         // Initialize the audio.
@@ -87,10 +93,13 @@ var game = {
     },
     // Run on game resources loaded.
     "loaded": function() {
+        //loads all of the characters and assigns them names
         me.pool.register("orcSpear", game.PlayerEntity, true);
         me.pool.register("seaKing", game.SeaKing, true);
         me.pool.register("fish", game.Fish, true);
+        me.pool.register("unicorn", game.Unicorn, true);
 
+        //loads all of the other entities and assigns them names 
         me.pool.register("PlayerBase", game.PlayerBaseEntity);
         me.pool.register("EnemyBase", game.EnemyBaseEntity);
         me.pool.register("EnemyCreep", game.EnemyCreep, true);
@@ -106,6 +115,7 @@ var game = {
         me.pool.register("Pause", game.Pause);
         me.pool.register("miniMap", game.MiniMap, true);
         me.pool.register("miniPlayer", game.MiniPlayerLocation, true);
+        //loads all the states and assigns them to an entity
         me.state.set(me.state.MENU, new game.TitleScreen());
         me.state.set(me.state.PLAY, new game.PlayScreen());
         me.state.set(me.state.RESTART, new game.RestartScreen());

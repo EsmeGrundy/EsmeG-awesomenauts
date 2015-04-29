@@ -39,9 +39,10 @@ game.Characters = me.ScreenObject.extend({
                 game.data.character = "fish";
                 me.state.change(me.state.PLAY);
             }
-//            else if (action === "F4") {
-//                me.state.change(me.state.PLAY);
-//            }
+            else if (action === "F4") {
+                game.data.character = "unicorn";
+                me.state.change(me.state.PLAY);
+            }
             else if (action === "F5") {
                 //if the player presses F5, the game starts (the play screen is activated)
                 me.state.change(me.state.PLAY);

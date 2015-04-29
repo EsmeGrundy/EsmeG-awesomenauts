@@ -17,20 +17,7 @@ game.MiniMap = me.Entity.extend({
             }]);
     },
     update: function(){
-       if(me.input.isKeyPressed("map")){
-           if(this.map){
-               this.hideMap();
-           }else{
-               this.showMap();
-           }
-       }
         return true;
-    },
-    hideMap: function(){
-        me.game.world.removeChild(game.MiniMap);
-    },
-    showMap: function(){
-        me.game.world.addChild(game.MiniMap);
     }
 });
 

@@ -50,6 +50,7 @@ require_once("php/controller/create-db.php");
         <script type="text/javascript" src="js/entities/entities.js"></script>
         <script type="text/javascript" src="js/entities/SeaKing.js"></script>
         <script type="text/javascript" src="js/entities/Fish.js"></script>
+        <script type="text/javascript" src="js/entities/Unicorn.js"></script>
         <script type="text/javascript" src="js/entities/GameManager.js"></script>
         <script type="text/javascript" src="js/entities/PlayerBaseEntity.js"></script>
         <script type="text/javascript" src="js/entities/EnemyBaseEntity.js"></script>
