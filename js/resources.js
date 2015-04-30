@@ -10,6 +10,7 @@ game.resources = [
     {name: "seaKing", type: "image", src: "data/img/SeaKing.png"},
     {name: "fish", type: "image", src: "data/img/Fish.png"},
      {name: "unicorn", type: "image", src: "data/img/unicorn.png"},
+     {name: "narwhal", type: "image", src: "data/img/narwhal.png"},
     {name: "tower", type: "image", src: "data/img/tower_round.svg.png"},
     {name: "creep1", type: "image", src: "data/img/brainmonster.png"},
     {name: "creep2", type: "image", src: "data/img/wizard.png"},

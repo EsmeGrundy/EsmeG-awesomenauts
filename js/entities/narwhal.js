@@ -1,4 +1,4 @@
-game.Fish = me.Entity.extend({
+game.Narwhal = me.Entity.extend({
     //see comments on entities.js
     init: function(x, y, settings) {
         this.setSuper(x, y, settings);
@@ -12,13 +12,13 @@ game.Fish = me.Entity.extend({
     },
     setSuper: function(x, y, settings) {
         this._super(me.Entity, "init", [x, y, {
-                image: "fish",
-                height: 64,
-                width: 64,
-                spriteheight: "64",
-                spritewidth: "64",
+                image: "narwhal",
+                height: 128,
+                width: 128,
+                spriteheight: "128",
+                spritewidth: "128",
                 getShape: function() {
-                    return(new me.Rect(0, 0, 64, 64)).toPolygon();
+                    return(new me.Rect(0, 0, 128, 128)).toPolygon();
                 }
 
             }]);
@@ -42,9 +42,9 @@ game.Fish = me.Entity.extend({
         this.attacking = false;
     },
     addAnimation: function() {
-        this.renderable.addAnimation("idle", [5]);
-        this.renderable.addAnimation("walk", [5, 6, 7, 8, 9], 80);
-        this.renderable.addAnimation("attack", [0, 1, 2, 3, 4], 80);
+        this.renderable.addAnimation("idle", [8]);
+        this.renderable.addAnimation("walk", [8, 9, 10, 11, 12, 13, 14, 15], 80);
+        this.renderable.addAnimation("attack", [0, 1, 2, 3, 4, 5, 6, 7], 80);
     },
     update: function(delta) {
         this.now = new Date().getTime();
@@ -89,12 +89,12 @@ game.Fish = me.Entity.extend({
     moveRight: function() {
         this.facing = "right";
         this.body.vel.x += this.body.accel.x * me.timer.tick;
-        this.flipX(false);
+        this.flipX(true);
     },
     moveLeft: function() {
         this.facing = "left";
         this.body.vel.x -= this.body.accel.x * me.timer.tick;
-        this.flipX(true);
+        this.flipX(false);
     },
     jump: function() {
         //sets mario's velocity in the y direction to the y velocity from setVelocity and smooths animation
@@ -255,11 +255,4 @@ game.Fish = me.Entity.extend({
         response.b.loseHealth(game.data.playerAttack);
     }
 });
-
-
-
-
-
-
-
 

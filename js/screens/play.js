@@ -5,11 +5,12 @@ game.PlayScreen = me.ScreenObject.extend({
     onResetEvent: function() {
         // reset the score
         game.data.score = 0;
-
+        //loads the level
         me.levelDirector.loadLevel("level03");
-
+        //resets the player
         this.resetPlayer(10, 0);
-
+        
+        //adds the entities needed to play the game
         var gameTimerManager = me.pool.pull("GameTimerManager", 0, 0, {});
         me.game.world.addChild(gameTimerManager, 0);
 
@@ -28,6 +29,7 @@ game.PlayScreen = me.ScreenObject.extend({
         game.data.miniMap = me.pool.pull("miniMap", 10, 10, {});
         me.game.world.addChild(game.data.miniMap, 30);
 
+        //binds the keys needed for the game
         me.input.bindKey(me.input.KEY.B, "buy");
         me.input.bindKey(me.input.KEY.Q, "skill1");
         me.input.bindKey(me.input.KEY.W, "skill2");
@@ -37,7 +39,6 @@ game.PlayScreen = me.ScreenObject.extend({
         me.input.bindKey(me.input.KEY.UP, "jump");
         me.input.bindKey(me.input.KEY.A, "attack");
         me.input.bindKey(me.input.KEY.P, "pause");
-        me.input.bindKey(me.input.KEY.M, "map");
 
         // add our HUD to the game world
         this.HUD = new game.HUD.Container();
@@ -51,6 +52,7 @@ game.PlayScreen = me.ScreenObject.extend({
         me.game.world.removeChild(this.HUD);
     },
     resetPlayer: function(x, y) {
+        //adds the entities needed for the game when the player resets
         game.data.player = me.pool.pull(game.data.character, x, y, {});
         me.game.world.addChild(game.data.player, 5);
         

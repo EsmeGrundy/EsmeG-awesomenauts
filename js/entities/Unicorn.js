@@ -6,6 +6,7 @@ game.Unicorn = me.Entity.extend({
         me.game.viewport.follow(this.pos, me.game.viewport.AXIS.BOTH);
         this.addAnimation();
         this.renderable.setCurrentAnimation("explode");
+        //the player wins
         game.data.win = true;
     },
     setSuper: function(x, y, settings) {

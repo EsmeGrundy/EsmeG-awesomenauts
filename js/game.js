@@ -97,6 +97,7 @@ var game = {
         me.pool.register("orcSpear", game.PlayerEntity, true);
         me.pool.register("seaKing", game.SeaKing, true);
         me.pool.register("fish", game.Fish, true);
+        me.pool.register("narwhal", game.Narwhal, true);
         me.pool.register("unicorn", game.Unicorn, true);
 
         //loads all of the other entities and assigns them names 

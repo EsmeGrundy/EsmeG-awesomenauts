@@ -1,4 +1,5 @@
 game.SeaKing = me.Entity.extend({
+    //see comments on entities.js
     init: function(x, y, settings) {
         this.setSuper(x, y, settings);
         this.setPlayerTimers();
